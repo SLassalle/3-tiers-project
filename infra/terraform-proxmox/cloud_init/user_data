@@ -1,0 +1,12 @@
+#cloud-config
+hostname: ${hostname}
+local-hostname: ${hostname}
+fqdn: ${hostname}.${domain}
+manage_etc_hosts: true
+package_upgrade: true
+users:
+  - name: ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      - ${ssh_key}
+ssh_pwauth: True
